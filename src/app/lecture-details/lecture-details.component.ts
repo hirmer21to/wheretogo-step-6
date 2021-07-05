@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styles: []
 })
 export class LectureDetailsComponent implements OnInit {
-  @Input() lecture: Lecture;
+  @Input() lecture: Lecture | undefined;
 
   constructor(
     private route: ActivatedRoute,
