@@ -16,20 +16,23 @@ export class LectureDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private lectureService: LectureService,
     private location: Location
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getLecture();
-  }  
-  
-  getLecture(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.lectureService.getLecture(id)
-    .subscribe(lecture => this.lecture = lecture);
   }
 
-  goBack(): void{
-    this.location.back();
-   }
+  getLecture(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    // check if id is null
+    if (id !== null) {
+      this.lectureService
+        .getLecture(parseInt(id))
+        .subscribe(lecture => (this.lecture = lecture));
+    }
+  }
 
+  goBack(): void {
+    this.location.back();
+  }
 }

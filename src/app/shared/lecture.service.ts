@@ -14,7 +14,7 @@ export class LectureService {
     return of (LECTURES);
   }
 
-  getLecture(id: number): Observable<Lecture>{
+  getLecture(id: number): Observable<Lecture | undefined>{
     return of(LECTURES.find(lecture => lecture.id === id));
   }
 }
