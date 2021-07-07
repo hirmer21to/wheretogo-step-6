@@ -17,8 +17,7 @@ export class TimetableComponent implements OnInit {
   }
 
   getLectures(): void {
-    this.lectureService.getLectures()
-    .subscribe(lectures => this.lectures = lectures);
+    this.lectureService.getLectures().subscribe(lectures => this.lectures = lectures);
   }
 
 }
